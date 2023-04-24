@@ -17,16 +17,16 @@ export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-       fetchingUser(state) {
-           state.loader = true
-       },
-        fetchingUserSuccess (state, action:PayloadAction<IUser[]>){
-           state.loader = false
+        fetchingUser(state) {
+            state.loader = true
+        },
+        fetchingUserSuccess(state, action: PayloadAction<IUser[]>) {
+            state.loader = false
             state.user = action.payload
             state.error = ''
         },
-        fetchingUserError(state, action: PayloadAction<string>){
-           state.loader = false
+        fetchingUserError(state, action: PayloadAction<string>) {
+            state.loader = false
             state.user = []
             state.error = action.payload
         }
@@ -34,4 +34,5 @@ export const userSlice = createSlice({
 
 })
 
-export default  userSlice.reducer
+export default userSlice.reducer
+export const {fetchingUser,fetchingUserSuccess, fetchingUserError} = userSlice.actions
